@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ThermoChart_Control.ThermoChartArea"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" DataContext="{Binding RelativeSource={RelativeSource Self}}" x:ClassModifier="internal"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Rectangle Name="GraphBorder" Fill="#00FFFFFF" Stroke="#FFA9A9A9" StrokeThickness="1" />
+
+        <Grid Name="GraphContainer" Margin="20"
+              Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=MaxWidthYLabel}" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="{Binding Path=MaxWidthXLabel}" />
+            </Grid.RowDefinitions>
+            <Canvas Name="ODivisionsX" Grid.Column="1" Grid.Row="1" />
+            <Canvas Name="ODivisionsY" Grid.Column="0" Grid.Row="0" />
+
+            <Grid Name="GraphArea" Grid.Column="1" Grid.Row="0">
+                <Grid.Effect>
+                    <BlurEffect RenderingBias="Performance" Radius="{Binding Path=SmoothLevel}" />
+                </Grid.Effect>
+            </Grid>
+            <Grid Name="PanelLoad" Grid.Column="1" Grid.Row="0" />
+        </Grid>
+    </Grid>
+</UserControl>

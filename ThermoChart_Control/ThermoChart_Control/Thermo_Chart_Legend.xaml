@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ThermoChart_Control.ThermoChartLegend"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" x:ClassModifier="internal" d:DesignHeight="600"
+             d:DesignWidth="300" xmlns:local="clr-namespace:ThermoChart_Control">
+    <Grid Width="120">
+        <Border BorderThickness="1" CornerRadius="0" BorderBrush="#aaaaaa">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Color="#d3e4f3" Offset="0" />
+                    <GradientStop Color="#e2f0fd" Offset="0.8" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <DockPanel>
+            <Label DockPanel.Dock="Top" FontWeight="Bold" Content="{Binding Path=LegendTitle}" />
+            <local:ThermoChartUiLevelContainer DockPanel.Dock="Top" Margin="5,5,5,10" x:Name="StackLevel"
+                                                  UiLevelSource="{Binding Path=ListPalier}" />
+        </DockPanel>
+    </Grid>
+</UserControl>
